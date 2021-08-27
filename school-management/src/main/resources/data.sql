@@ -1,0 +1,10 @@
+insert into course (course_code, course_name, credit_score) values ('OV511', 'Conium maculatum L.', 8);
+insert into course (course_code, course_name, credit_score) values ('QL767', 'Gamochaeta pensylvanica (Willd.) Cabrera', 10);
+insert into course (course_code, course_name, credit_score) values ('TM516', 'Cerastium alpinum L. ssp. alpinum', 6);
+insert into course (course_code, course_name, credit_score) values ('TV135', 'Asplenium varians Wall. ex Hook. & Grev.', 7);
+insert into course (course_code, course_name, credit_score) values ('TC517', 'Heteropogon melanocarpus (Elliott) Elliott ex Benth.', 10);
+insert into course (course_code, course_name, credit_score) values ('KT331', 'Alysicarpus Neck. ex Desv.', 10);
+insert into course (course_code, course_name, credit_score) values ('AS264', 'Pandanus utilis Bory', 7);
+insert into course (course_code, course_name, credit_score) values ('YS808', 'Quercus garryana Douglas ex Hook. var. semota Jeps.', 9);
+insert into course (course_code, course_name, credit_score) values ('IE071', 'Onosmodium bejariense DC. ex A. DC. var. hispidissimum (Mack.) B.L. Turner', 8);
+insert into course (course_code, course_name, credit_score) values ('CH838', 'Erigeron pumilus Nutt. ssp. intermedius Cronquist var. intermedius (Cronquist) Cronquist', 6);

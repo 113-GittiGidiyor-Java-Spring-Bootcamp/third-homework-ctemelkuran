@@ -55,4 +55,9 @@ public class CourseController {
             return new ResponseEntity<String>("Course with id: " + course.getId() + " not found.", HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/findByNameContaining/{name}")
+    public List<Course> getCoursesWithNameContaining(@PathVariable String name){
+        return courseService.findByName(name);
+    }
 }

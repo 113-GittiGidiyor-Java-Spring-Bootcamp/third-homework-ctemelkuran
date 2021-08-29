@@ -54,4 +54,20 @@ public class InstructorController {
             return new ResponseEntity<String>("Instructor with id: " + instructor.getId() + " not found.", HttpStatus.BAD_REQUEST);
         }
     }
+
+    @GetMapping("/findInstructorByNameContaining/{name}")
+    public List<Instructor> getInstructorsWithNameContaining(@PathVariable String name){
+        return instructorService.findByName(name);
+    }
+
+    @GetMapping("/deleteInstructorByName/{name}")
+    public String deleteInstructorByName(@PathVariable String name){
+        instructorService.deleteInstructorByName(name);
+        return "Instructor deleted with name: "+ name;
+    }
+
+    @GetMapping("/findFirst3InstructorBySalary")
+    public List<?> getFirst3InstructorBySalary(){
+        return instructorService.findFirst3BySalary();
+    }
 }

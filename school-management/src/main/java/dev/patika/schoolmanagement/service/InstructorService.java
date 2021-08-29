@@ -3,6 +3,7 @@ package dev.patika.schoolmanagement.service;
 import dev.patika.schoolmanagement.entity.Instructor;
 import dev.patika.schoolmanagement.entity.Instructor;
 import dev.patika.schoolmanagement.repository.InstructorRepository;
+import dev.patika.schoolmanagement.repository.PermanentInstructorRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,6 +16,7 @@ import java.util.List;
 public class InstructorService implements BaseService<Instructor>{
 
     private final InstructorRepository instructorRepository;
+    private final PermanentInstructorRepository permanentInstructorRepository;
 
     @Override
     public List<Instructor> findAll() {
@@ -39,17 +41,17 @@ public class InstructorService implements BaseService<Instructor>{
 
     @Override
     public Instructor update(Instructor object) {
-        return null;
+        return instructorRepository.save(object);
     }
 
     @Override
     public void deleteById(int id) {
-
+        instructorRepository.deleteById(id);
     }
 
     @Override
     public void delete(Instructor object) {
-
+        instructorRepository.delete(object);
     }
 
     @Override
@@ -57,4 +59,12 @@ public class InstructorService implements BaseService<Instructor>{
         return instructorRepository.findByNameContaining(name);
     }
 
+    @Transactional
+    public void deleteInstructorByName(String name){
+        instructorRepository.deleteInstructorByName(name);
+    };
+
+    public List<?> findFirst3BySalary(){
+        return permanentInstructorRepository.findTop3ByFixedSalary();
+    }
 }

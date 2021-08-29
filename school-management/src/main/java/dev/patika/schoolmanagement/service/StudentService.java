@@ -59,4 +59,13 @@ public class StudentService implements BaseService<Student>{
         return studentRepository.findByNameContaining(name);
     }
 
+
+    public List<?> getGendersWithGrouping(){
+        return studentRepository.getGendersWithGrouping();
+    }
+
+    @Transactional
+    public void deleteStudentByName(String name){
+        studentRepository.deleteStudentByName(name);
+    };
 }

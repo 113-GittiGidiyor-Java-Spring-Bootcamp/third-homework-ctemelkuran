@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface CourseRepository extends CrudRepository<Course, Integer> {
     List<Course> findByCourseNameContaining(String s);
+
+    void deleteCourseByCourseName(String name);
 }

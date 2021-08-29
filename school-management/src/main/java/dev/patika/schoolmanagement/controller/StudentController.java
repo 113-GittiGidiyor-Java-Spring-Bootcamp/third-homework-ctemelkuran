@@ -1,5 +1,6 @@
 package dev.patika.schoolmanagement.controller;
 
+import dev.patika.schoolmanagement.entity.Instructor;
 import dev.patika.schoolmanagement.entity.Student;
 import dev.patika.schoolmanagement.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,4 +59,19 @@ public class StudentController {
         }
     }
 
+    @GetMapping("/findStudentByNameContaining/{name}")
+    public List<Student> getStudentsWithNameContaining(@PathVariable String name){
+        return studentService.findByName(name);
+    }
+
+    @GetMapping("/getStudentGendersWithGrouping")
+    public List<?> getStudentGendersWithGrouping(){
+        return studentService.getGendersWithGrouping();
+    }
+
+    @GetMapping("/deleteStudentByName/{name}")
+    public String deleteStudentByName(@PathVariable String name){
+        studentService.deleteStudentByName(name);
+        return "Student deleted with name: "+ name;
+    }
 }

@@ -1,5 +1,6 @@
 package dev.patika.schoolmanagement.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 import org.springframework.lang.NonNull;
@@ -29,6 +30,7 @@ public class Course {
     private List<Student> students = new ArrayList<>();
 
     //@JsonIgnoreProperties("{instructorCourses}")
+    // @JsonBackReference
     @ManyToOne
     private Instructor instructor;
 

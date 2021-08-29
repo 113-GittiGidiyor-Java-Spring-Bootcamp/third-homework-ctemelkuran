@@ -56,8 +56,13 @@ public class CourseController {
         }
     }
 
-    @GetMapping("/findByNameContaining/{name}")
+    @GetMapping("/findCourseByNameContaining/{name}")
     public List<Course> getCoursesWithNameContaining(@PathVariable String name){
         return courseService.findByName(name);
+    }
+    @GetMapping("/deleteCourseByName/{name}")
+    public String deleteCourseByName(@PathVariable String name){
+        courseService.deleteCourseByName(name);
+        return "Course deleted with name: "+ name;
     }
 }

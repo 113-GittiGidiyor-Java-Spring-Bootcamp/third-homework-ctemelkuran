@@ -1,6 +1,7 @@
 package dev.patika.schoolmanagement.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import lombok.AllArgsConstructor;
@@ -29,7 +30,7 @@ public class Instructor {
 
     // One instructor may have several courses
     // mapping is handled at One to Many relation
-    @JsonIgnore
+    // @JsonManagedReference
     @OneToMany(mappedBy = "instructor", fetch = FetchType.LAZY)
     List<Course> instructorCourses = new ArrayList<>();
 

@@ -47,18 +47,19 @@ public class CourseService implements BaseService<Course>{
     }
 
     @Override
+    @Transactional
     public Course update(Course object) {
-        return null;
+        return courseRepository.save(object);
     }
 
     @Override
     public void deleteById(int id) {
-
+        courseRepository.deleteById(id);
     }
 
     @Override
     public void delete(Course object) {
-
+        courseRepository.delete(object);
     }
 
     @Override
@@ -66,4 +67,8 @@ public class CourseService implements BaseService<Course>{
         return courseRepository.findByCourseNameContaining(name);
     }
 
+    @Transactional
+    public void deleteCourseByName(String name){
+        courseRepository.deleteCourseByCourseName(name);
+    };
 }

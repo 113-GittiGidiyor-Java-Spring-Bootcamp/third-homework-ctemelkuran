@@ -66,8 +66,8 @@ public class InstructorController {
         return "Instructor deleted with name: "+ name;
     }
 
-    @GetMapping("/findFirst3InstructorBySalary")
-    public List<?> getFirst3InstructorBySalary(){
-        return instructorService.findFirst3BySalary();
-    }
+//    @GetMapping("/findFirst3InstructorBySalary")
+//    public List<?> getFirst3InstructorBySalary(){
+//        return instructorService.findFirst3BySalary();
+//    }
 }

@@ -10,6 +10,6 @@ import java.util.List;
 @Repository
 public interface PermanentInstructorRepository extends CrudRepository<PermanentInstructor, Integer> {
 
-    @Query("Select i.name FROM Instructor i where PermanentInstructor.id = Instructor.id")
-    List<?> findTop3ByFixedSalary();
+//    @Query("Select i.name FROM Instructor i where PermanentInstructor.id = Instructor.id")
+//    List<?> findTop3ByFixedSalary();
 }

@@ -64,7 +64,8 @@ public class InstructorService implements BaseService<Instructor>{
         instructorRepository.deleteInstructorByName(name);
     };
 
-    public List<?> findFirst3BySalary(){
-        return permanentInstructorRepository.findTop3ByFixedSalary();
-    }
+//    @Override
+//    public List<?> findFirst3BySalary(){
+//        return permanentInstructorRepository.findTop3ByFixedSalary();
+//    }
 }

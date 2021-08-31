@@ -1,28 +1,32 @@
 package dev.patika.tryusdconverter.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/converter")
 public class ConverterController {
 
+    // static currency rate
+    static final double USD_TRY_RATE = 8.33;
 
-    @GetMapping("/converter")
-    public ResponseEntity<String> convertCurrency(@RequestParam String firstCurrency, @RequestParam String secondCurrency,
-                                             @RequestParam double amount)
+    @GetMapping
+    public ResponseEntity<String> convertCurrency(@RequestParam String firstCurrency,
+                                                  @RequestParam String secondCurrency,
+                                                  @RequestParam double amount)
     {
-        if (firstCurrency=="TRY"){
-            return new ResponseEntity<>("TRY to USD: "+ amount / 8.45, HttpStatus.OK);
+        if (firstCurrency.equalsIgnoreCase("try")
+                && secondCurrency.equalsIgnoreCase("usd")) {
+            return new ResponseEntity<>(String.format("USD to TRY: %.2f $", amount / USD_TRY_RATE), HttpStatus.OK);
         }
-        else if (firstCurrency=="USD"){
-            return new ResponseEntity<>("USD to TRY: "+ amount * 8.45, HttpStatus.OK);
+        else if (firstCurrency.equalsIgnoreCase("usd")
+                && secondCurrency.equalsIgnoreCase("try")) {
+            return new ResponseEntity<>(String.format("USD to TRY: %.2f ₺", amount * USD_TRY_RATE), HttpStatus.OK);
         }
-        else{
-            return new ResponseEntity<String>("An error occurred", HttpStatus.BAD_REQUEST);
+        else {
+            return new ResponseEntity<>("An error occurred...", HttpStatus.BAD_REQUEST);
         }
     }
+
 }

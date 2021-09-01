@@ -1,6 +1,5 @@
 package dev.patika.schoolmanagement.currency;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,12 +21,12 @@ public class CurrencyEndPoint {
 
     // Get Request end point
     @GetMapping("/convert-currency")
-    public ResponseEntity<String> convertTryAndUsd(@RequestParam String firstCurrency,
-                                                   @RequestParam String secondCurrency,
+    public ResponseEntity<String> convertTryAndUsd(@RequestParam String fromCurrency,
+                                                   @RequestParam String toCurrency,
                                                    @RequestParam double amount) {
 
-        ResponseEntity<String> result = restTemplate.getForEntity(END_POINT_API+"/converter?firstCurrency="
-                +firstCurrency + "&secondCurrency="+secondCurrency+"&amount="+ amount, String.class);
+        ResponseEntity<String> result = restTemplate.getForEntity(END_POINT_API+"/converter?fromCurrency="
+                + fromCurrency + "&toCurrency="+ toCurrency +"&amount="+ amount, String.class);
 
         return result;// ResponseEntity<>(result, HttpStatus.OK);
     }
